@@ -1,0 +1,24 @@
+{
+  "name": "SenecaTest",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "node node_modules/jasmine-node/lib/jasmine-node/cli.js --verbose api-gateway/ microservices/"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Pianobit",
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "boom": "^3.1.2",
+    "chairo": "^2.2.0",
+    "hapi": "^13.3.0",
+    "seneca": "^2.0.1",
+    "seneca-beanstalk-transport": "^0.2.1"
+  },
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
+  }
+}
