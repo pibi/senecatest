@@ -27,25 +27,20 @@ seneca
   .use('beanstalk-transport')
   .client({
     type: 'beanstalk',
-    pin: ['role:*,cmd:*'].join(''),
+    pin: 'role:*',
     host: options.QUEUE_HOST || '0.0.0.0'
   })
   // authentication/authorization modules
   .use('./auth/index.js', options)
 
   // API groups
-  .use('./api/index.js',options);
+  require('./api/index.js')(options);
 
-seneca.ready(function() {
-
-  seneca.log.info('ready to start');
-
+seneca.ready( function() {
   server.start(function(exc) {
     if (exc) {
       throw exc;
     }
-    console.log('Server running at:', server.info.uri);
+    seneca.log.info('Server running at:', server.info.uri);
   });
-
 });
-

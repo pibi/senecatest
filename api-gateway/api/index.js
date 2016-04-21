@@ -11,7 +11,7 @@ module.exports = function(options) {
     var f = path.basename(file, '.js');
     if (f !== file && f !== 'index') {
       console.log('[ API-GW ]', 'loading ', f);
-      seneca.use(path.join(__dirname, '/', file), options);
+      seneca.use(require(path.join(__dirname, '/', file)), options);
     }
   });
 
